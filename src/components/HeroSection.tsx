@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import { HoverBorderGradient } from "./ui/hover-border-gradient"
-import { ContainerScroll } from "./ui/container-scroll-animation"
+import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import { ContainerScroll } from "./ui/container-scroll-animation";
+import { MobileContainerScroll } from "./ui/MobileContainerScroll"; 
 
 export default function HeroSection() {
   const companyLogos = [
@@ -13,7 +14,7 @@ export default function HeroSection() {
     { src: "/download-1.png", alt: "Company logo" },
     { src: "/oracle-1.png", alt: "Oracle" },
     { src: "/barclays-1.png", alt: "Barclays" },
-  ]
+  ];
 
   return (
     <section className="w-full bg-black">
@@ -26,11 +27,11 @@ export default function HeroSection() {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-auto object-cover"
           >
             <source src="/hero video.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/20 to-transparent" />
         </div>
 
         <div className="relative w-full max-w-[1441px] mx-auto z-10">
@@ -80,7 +81,7 @@ export default function HeroSection() {
                 the industry.
               </p>
 
-              {/* 🔹 CTA Buttons (side-by-side on mobile) */}
+              {/* 🔹 CTA Buttons */}
               <div className="flex flex-row items-center justify-center md:justify-start gap-3 md:gap-[47px] flex-wrap">
                 <HoverBorderGradient
                   containerClassName="rounded-[44.92px] flex-1 min-w-[140px] sm:flex-none"
@@ -89,7 +90,7 @@ export default function HeroSection() {
                   duration={1.5}
                 >
                   <span className="text-white text-sm sm:text-base md:text-[19px] text-center font-medium whitespace-nowrap">
-                    Generate My Roadmap
+                    Generate Roadmap
                   </span>
                 </HoverBorderGradient>
 
@@ -100,17 +101,17 @@ export default function HeroSection() {
                   duration={1.5}
                 >
                   <span className="text-white text-sm sm:text-base md:text-[19.6px] text-center font-medium whitespace-nowrap">
-                    Explore Features
+                    Explore Projects
                   </span>
                 </HoverBorderGradient>
               </div>
             </div>
           </div>
 
-          {/* 🔹 3D Scroll Frame (hidden on mobile) */}
-          <div className="hidden md:block mt-16 px-8 pb-16">
+          {/*  3D Scroll Frame Desktop */}
+          <div className="hidden md:block">
             <ContainerScroll titleComponent={<div className="h-0" />}>
-              <div className="relative w-full rounded-[30px] overflow-hidden border-2 border-[#40934f]/30 shadow-[0_0_80px_rgba(64,147,79,0.3)]">
+              <div className="relative w-full rounded-[30px] overflow-hidden">
                 <img
                   src="/Rectangle 21981.png"
                   alt="Tutorial Frame"
@@ -119,6 +120,18 @@ export default function HeroSection() {
                 />
               </div>
             </ContainerScroll>
+          </div>
+
+          {/*  3D Scroll Frame Mobile */}
+          <div className="block md:hidden mt-10 mb-20">
+            <MobileContainerScroll titleComponent={<div className="h-0" />}>
+              <img
+                src="/phone view.png"
+                alt="App Preview"
+                className="w-full h-full object-cover"
+                draggable={false}
+              />
+            </MobileContainerScroll>
           </div>
         </div>
       </div>
@@ -146,5 +159,5 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,8 +1,8 @@
 "use client";
-
 import React from "react";
-import { Separator } from "../components/ui/separator";
-import { Instagram, Mail, MessageCircle } from "lucide-react"; // Lucide icons
+import { Separator } from "./ui/separator";
+import { Instagram, Mail, MessageCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 const featuresLinks = [
   "Features",
@@ -38,94 +38,188 @@ const FooterSection: React.FC = () => {
               alt="Ladder1 Light"
               src="/ladder1-light-1-1.png"
             />
-            <p className="max-w-[450px] text-white font-medium text-base sm:text-lg leading-relaxed tracking-[0.2px]">
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="max-w-[450px] text-white font-medium text-base sm:text-lg leading-relaxed tracking-[0.2px]"
+            >
               Ladder1 is an AI-driven learning platform that turns coding
               education into real-world skill development. We help learners
               build, test, and showcase projects — with guidance, feedback, and
               rewards.
-            </p>
+            </motion.p>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-5 mt-2">
-              <a
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="flex items-center gap-5 mt-2"
+            >
+              <motion.a
+                whileHover={{ scale: 1.1, y: -3 }}
+                whileTap={{ scale: 0.95 }}
                 href="https://www.instagram.com/ladder1.ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white/10 hover:bg-[#58b368] transition-colors"
               >
                 <Instagram className="w-6 h-6 text-white" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.1, y: -3 }}
+                whileTap={{ scale: 0.95 }}
                 href="https://wa.me/919876543210"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white/10 hover:bg-[#58b368] transition-colors"
               >
                 <MessageCircle className="w-6 h-6 text-white" />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.1, y: -3 }}
+                whileTap={{ scale: 0.95 }}
                 href="mailto:satvik@ladder1.ai"
                 className="p-3 rounded-full bg-white/10 hover:bg-[#58b368] transition-colors"
               >
                 <Mail className="w-6 h-6 text-white" />
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
           </div>
 
           {/* Features links */}
-          <nav className="flex flex-col gap-3 sm:gap-[15px]">
+          <motion.nav 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-col gap-3 sm:gap-[15px]"
+          >
             <h3 className="text-white font-bold text-lg sm:text-xl mb-2">Features</h3>
             {featuresLinks.map((link, index) => (
-              <a
+              <motion.a
                 key={index}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                whileHover={{ x: 5, color: "#58b368" }}
                 href="#"
                 className="text-white/90 hover:text-green-500 transition-colors text-sm sm:text-base font-medium leading-7"
               >
                 {link}
-              </a>
+              </motion.a>
             ))}
-          </nav>
+          </motion.nav>
 
           {/* Legal links */}
-          <nav className="flex flex-col gap-3 sm:gap-[15px]">
+          <motion.nav 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-col gap-3 sm:gap-[15px]"
+          >
             <h3 className="text-white font-bold text-lg sm:text-xl mb-2">Legal</h3>
             {legalLinks.map((link, index) => (
-              <a
+              <motion.a
                 key={index}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                whileHover={{ x: 5, color: "#58b368" }}
                 href="#"
                 className="text-white/90 hover:text-green-500 transition-colors text-sm sm:text-base font-medium leading-7"
               >
                 {link}
-              </a>
+              </motion.a>
             ))}
-          </nav>
+          </motion.nav>
 
           {/* Contact info */}
-          <div className="flex flex-col gap-4 sm:gap-[15px]">
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex flex-col gap-4 sm:gap-[15px]"
+          >
             <h3 className="text-white font-bold text-2xl sm:text-4xl leading-tight">
               Contact Us
             </h3>
             <div className="flex flex-col text-white font-medium text-base sm:text-xl">
               <span className="text-[#ffffff99] mb-1">Email</span>
-              <a
+              <motion.a
+                whileHover={{ color: "#58b368" }}
                 href="mailto:satvik@ladder1.ai"
                 className="text-white hover:opacity-80 transition-opacity break-all"
               >
                 satvik@ladder1.ai
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Decorative Image */}
-        <img
-          className="relative w-full h-auto max-w-[1119px] mx-auto mb-12 sm:mb-[100px]"
-          alt="Mask group"
-          src="/mask-group.png"
-        />
+        {/* Decorative Image with Glowing Reveal Animation */}
+        <motion.div
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          whileInView={{ 
+            opacity: 1, 
+            y: 0, 
+            filter: "blur(0px)",
+          }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ 
+            duration: 1.2, 
+            ease: [0.22, 1, 0.36, 1] 
+          }}
+          className="relative mx-auto max-w-[1119px] mb-12 sm:mb-[100px]"
+        >
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: [0, 1, 0.7, 1, 0.7] }}
+            viewport={{ once: true }}
+            transition={{ 
+              duration: 3,
+              delay: 0.3,
+              ease: "easeOut",
+              repeat: Infinity,
+              repeatDelay: 2
+            }}
+            className="absolute -inset-8 bg-gradient-to-r from-[#58b368]/30 via-[#58b368]/50 to-[#58b368]/30 rounded-lg blur-3xl"
+          />
+          
+          <motion.img
+            initial={{ scale: 0.95, opacity: 0.5 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ 
+              duration: 1.2, 
+              delay: 0.2,
+              ease: [0.22, 1, 0.36, 1] 
+            }}
+            className="relative w-full h-auto"
+            alt="Mask group"
+            src="/Mask group2.png"
+            style={{
+              filter: "drop-shadow(0 0 30px rgba(88, 179, 104, 0.4))",
+            }}
+          />
+        </motion.div>
 
         {/* Footer bottom */}
-        <div className="relative w-full">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="relative w-full"
+        >
           <Separator className="mb-6 bg-[#999999]" />
           <div className="flex flex-col lg:flex-row justify-between items-center gap-3 text-center lg:text-left">
             <p className="text-[#999999] text-sm sm:text-base font-medium">
@@ -135,7 +229,7 @@ const FooterSection: React.FC = () => {
               © 2025 Ladder1.ai — All rights reserved.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

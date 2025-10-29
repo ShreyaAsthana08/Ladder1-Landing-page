@@ -79,14 +79,14 @@ const Index = () => {
       <div className="flex gap-4 mt-16">
         <button
           onClick={handlePrevious}
-          className="w-12 h-12 rounded-full bg-foreground text-background flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg"
+          className="w-12 h-12 rounded-full bg-foreground text-background flex items-center justify-center hover:scale-110 transition-transform duration-300 "
           aria-label="Previous"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
         <button
           onClick={handleNext}
-          className="w-12 h-12 rounded-full bg-foreground text-background flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-lg"
+          className="w-12 h-12 rounded-full bg-foreground text-background flex items-center justify-center hover:scale-110 transition-transform duration-300 "
           aria-label="Next"
         >
           <ChevronRight className="w-5 h-5" />
