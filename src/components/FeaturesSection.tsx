@@ -5,7 +5,7 @@ import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Badge } from "./ui/badge"
 import { Separator } from "./ui/separator"
-import type { JSX } from "react/jsx-runtime" 
+import type { JSX } from "react/jsx-runtime"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -84,13 +84,13 @@ const features: Feature[] = [
   },
 ]
 
-/** Controls */
-const STAGE_H = 880 // pinned stage height (≈ tallest card)
-const STEP = 1000 // px scroll per card handoff
-const ENTER_Y = 500 // px start offset of incoming card
-const PIN_TOP = 40 // px offset for sticky header
-const SCALE_STEP = 0.05 // depth scale
-const FADE_STEP = 0.99 // depth opacity
+// Controls
+const STAGE_H = 850
+const STEP = 950
+const ENTER_Y = 500
+const PIN_TOP = 40
+const SCALE_STEP = 0.05
+const FADE_STEP = 0.99
 
 export const FeaturesSection = (): JSX.Element => {
   const pinRef = useRef<HTMLDivElement | null>(null)
@@ -100,7 +100,6 @@ export const FeaturesSection = (): JSX.Element => {
       const cards = gsap.utils.toArray<HTMLElement>(".contact-feature-card")
       if (!cards.length) return
 
-      // Wait for images (avoid mis-measured pin/ends)
       const imgs = Array.from(document.images)
       const ready = imgs.length
         ? Promise.allSettled(
@@ -116,9 +115,8 @@ export const FeaturesSection = (): JSX.Element => {
         : Promise.resolve(1)
 
       ready.then(() => {
-        // INITIAL: card #1 on top; others slightly below and hidden
         cards.forEach((card, i) => {
-          const z = 100 + (cards.length - i) // #1 highest
+          const z = 100 + (cards.length - i)
           gsap.set(card, {
             position: "absolute",
             left: "50%",
@@ -151,7 +149,7 @@ export const FeaturesSection = (): JSX.Element => {
           const curr = cards[i]
 
           tl.set(curr, { zIndex: 1000 + i }, "+=0")
-            .to(curr, { y: 0, opacity: 100 }, "<")
+            .to(curr, { y: 0, opacity: 1 }, "<")
             .to(
               cards.slice(0, i),
               {
@@ -178,72 +176,66 @@ export const FeaturesSection = (): JSX.Element => {
   }, [])
 
   return (
-    <section className="relative w-full bg-white py-[80px] sm:py-[110px]">
+    <section className="relative w-full bg-white py-16 sm:py-24 md:py-32">
       <div className="container mx-auto max-w-[1400px] px-4">
         {/* Header */}
         <header className="flex flex-col items-center gap-4 sm:gap-6 max-w-[877px] mx-auto text-center">
-          <Badge 
-      className="inline-flex items-center justify-center px-[26px] py-[9px] rounded-[15px] border border-solid border-[#58b368] bg-[#B5E8BE] hover:bg-[#D1F3D0]">
-        <span className="[font-family:'Sora',Helvetica] font-bold text-[#2d5735] text-xl tracking-[-0.60px] leading-[normal]">
-                  Features
-                </span>
-              </Badge>
-              <br /><br />
+          <Badge className="inline-flex items-center justify-center px-6 py-2 rounded-[15px] border border-[#58b368] bg-[#B5E8BE] hover:bg-[#D1F3D0]">
+            <span className="font-sora font-bold text-[#2d5735] text-lg sm:text-xl">
+              Features
+            </span>
+          </Badge>
 
-          <h2 className="[font-family:'Sora',Helvetica] text-[clamp(28px,6vw,64px)] leading-[1.05]">
-            <span className="font-extrabold text-black">Smarter Tools for </span>
-            <span className="font-extrabold text-[#58b368]">Learning &amp; Upskilling</span>
+          <h2 className="font-sora font-extrabold text-[clamp(28px,5vw,58px)] leading-tight text-black">
+            Smarter Tools for{" "}
+            <span className="text-[#58b368]">Learning & Upskilling</span>
           </h2>
         </header>
 
-        {/* Pinned Stage */}
-        <div ref={pinRef} className="relative w-full mt-20 sm:mt-[120px] overflow-hidden" style={{ height: STAGE_H }}>
+        {/* Pinned Cards Section */}
+        <div
+          ref={pinRef}
+          className="relative w-full mt-16 sm:mt-24 md:mt-32 overflow-hidden"
+          style={{ height: STAGE_H }}
+        >
           <div className="absolute inset-0 pointer-events-none">
             {features.map((f) => (
               <article
                 key={f.number}
-                className="contact-feature-card absolute w-full max-w-auto bg-white rounded-[20px] sm:rounded-[28px] shadow-[0_18px_60px_rgba(0,0,0,0.12)] ring-1 ring-black/5 pointer-events-auto overflow-hidden"
+                className="contact-feature-card absolute w-full bg-white rounded-[20px] sm:rounded-[24px] shadow-[0_18px_60px_rgba(0,0,0,0.1)] ring-1 ring-black/5 pointer-events-auto overflow-hidden"
                 style={{ minHeight: STAGE_H }}
               >
                 <div
-                  className={`flex flex-col xl:flex-row items-stretch gap-6 xl:gap-[48px] p-6 sm:p-8 xl:p-[48px] ${
-                    f.imagePosition === "left" ? "xl:flex-row-reverse" : ""
-                  }`}
+                  className={`flex flex-col-reverse lg:flex-row ${
+                    f.imagePosition === "left" ? "lg:flex-row-reverse" : ""
+                  } items-center gap-6 sm:gap-8 lg:gap-12 xl:gap-16 p-6 sm:p-8 lg:p-12`}
                 >
-                  {/* Text */}
-                  <div className="flex flex-col gap-4 sm:gap-6 relative xl:w-[520px]">
-                    <div className="flex items-center">
-                      <span className="[font-family:'Sora',Helvetica] font-extrabold text-black text-[72px] sm:text-[112px] leading-none">
-                        {f.number}
-                      </span>
-                    </div>
-
-                    <div className="pt-1 sm:pt-2">
-                      <p className="[font-family:'Lato',Helvetica] text-[#454545] text-base sm:text-lg">{f.subtitle}</p>
-                    </div>
-
-                    <Separator className="bg-[#454545]/80 w-[160px] sm:w-[220px]" />
-
-                    <h3 className="[font-family:'Sora',Helvetica] font-bold text-[28px] sm:text-[38px] leading-tight">
+                  {/* Text Content */}
+                  <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8 text-center lg:text-left lg:w-[520px]">
+                    <span className="font-sora font-extrabold text-[56px] sm:text-[80px] md:text-[112px] leading-none text-black">
+                      {f.number}
+                    </span>
+                    <p className="font-lato text-[#454545] text-sm sm:text-base md:text-lg">
+                      {f.subtitle}
+                    </p>
+                    <Separator className="bg-[#454545]/80 w-[120px] sm:w-[180px] md:w-[220px] mx-auto lg:mx-0" />
+                    <h3 className="font-sora font-bold text-2xl sm:text-3xl md:text-[38px] leading-tight">
                       <span className="text-[#40934f]">{f.title.green}</span>
                       <span className="text-black">{f.title.black}</span>
                     </h3>
-
-                    <p className="[font-family:'Lato',Helvetica] text-[#454545] text-base sm:text-lg leading-relaxed">
+                    <p className="font-lato text-[#454545] text-sm sm:text-base md:text-lg leading-relaxed">
                       {f.description}
                     </p>
                   </div>
 
                   {/* Image */}
-                  <div className="flex items-center justify-center xl:justify-end flex-1">
+                  <div className="flex items-center justify-center w-full lg:w-auto">
                     <img
-                      className={`w-full max-w-[710px] h-auto sm:h-[620px] lg:h-[720px] object-cover ${
-                        f.imagePosition === "left" ? "-rotate-0" : ""
-                      }`}
-                      alt={`Feature ${f.number}`}
                       src={f.image || "/placeholder.svg"}
+                      alt={`Feature ${f.number}`}
                       loading="lazy"
                       decoding="async"
+                      className="w-full max-w-[480px] sm:max-w-[600px] md:max-w-[710px] h-auto object-contain"
                     />
                   </div>
                 </div>
