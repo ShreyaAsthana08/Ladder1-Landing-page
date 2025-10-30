@@ -86,9 +86,9 @@ const features: Feature[] = [
 
 /** Controls */
 const STAGE_H = 880 // pinned stage height (≈ tallest card)
-const STEP = 560 // px scroll per card handoff
+const STEP = 1000 // px scroll per card handoff
 const ENTER_Y = 500 // px start offset of incoming card
-const PIN_TOP = 140 // px offset for sticky header
+const PIN_TOP = 40 // px offset for sticky header
 const SCALE_STEP = 0.05 // depth scale
 const FADE_STEP = 0.99 // depth opacity
 

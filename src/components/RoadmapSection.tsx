@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Badge } from "./ui/badge";
+import { Sora } from "next/font/google";
 
 interface RoadmapCardProps {
   src: string;
@@ -50,7 +51,7 @@ const RoadmapSection: React.FC = () => {
               AI Roadmaps
             </Badge>
 
-            <h2 className="[font-family:'Sora'] font-extrabold text-[64px] leading-[85.1px] tracking-[-0.82px]">
+            <h2 className="font-sora font-extrabold text-[64px] leading-[85.1px] tracking-[-0.82px]">
               <span className="text-black">Your AI-Powered Path to </span>
               <span className="text-[#58b368]">Mastery</span>
             </h2>

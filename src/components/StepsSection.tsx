@@ -30,24 +30,25 @@ export const StepsSection = (): JSX.Element => {
   return (
     <section className="relative w-full min-h-[900px] bg-black flex flex-col items-center overflow-hidden py-20 sm:py-28 md:py-36">
       {/* Animated Background */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-        <motion.img
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
-          alt="Steps Background"
-          src="/steps bg.png"
-          animate={{
-            y: [0, -40, 20, -30, 0],
-            x: [0, 15, -10, 20, 0],
-            scale: [1, 1.08, 1.03, 1.1, 1],
-            rotate: [0, 2, -1, 3, 0],
-          }}
-          transition={{
-            duration: 20,
-            ease: "easeInOut",
-            repeat: Infinity,
-          }}
-        />
-      </div>
+<div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+  <motion.img
+    className="absolute top-0 left-0 w-full h-full object-cover object-center opacity-70 md:opacity-80 scale-110 sm:scale-100"
+    alt="Steps Background"
+    src="/steps bg.png"
+    animate={{
+      y: [0, -30, 20, -25, 0],
+      x: [0, 10, -10, 15, 0],
+      scale: [1, 1.05, 1.02, 1.07, 1],
+      rotate: [0, 1.5, -1, 2, 0],
+    }}
+    transition={{
+      duration: 22,
+      ease: "easeInOut",
+      repeat: Infinity,
+    }}
+  />
+</div>
+
 
       {/* Heading */}
       <div className="relative z-10 flex flex-col items-center text-center px-4">
