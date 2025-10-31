@@ -28,7 +28,7 @@ const steps = [
 
 export const StepsSection = (): JSX.Element => {
   return (
-    <section className="relative w-full min-h-[900px] bg-black flex flex-col items-center overflow-hidden py-20 sm:py-28 md:py-36">
+    <section className="relative w-full min-h-[1095px] bg-black flex flex-col items-center overflow-hidden py-20 sm:py-28 md:py-36">
       {/* Animated Background */}
 <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
   <motion.img

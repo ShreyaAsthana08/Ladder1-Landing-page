@@ -90,7 +90,7 @@ const STEP = 950
 const ENTER_Y = 500
 const PIN_TOP = 40
 const SCALE_STEP = 0.05
-const FADE_STEP = 0.99
+const FADE_STEP = 0.15
 
 export const FeaturesSection = (): JSX.Element => {
   const pinRef = useRef<HTMLDivElement | null>(null)
@@ -215,7 +215,7 @@ export const FeaturesSection = (): JSX.Element => {
                     <span className="font-sora font-extrabold text-[56px] sm:text-[80px] md:text-[112px] leading-none text-black">
                       {f.number}
                     </span>
-                    <p className="font-lato text-[#454545] text-sm sm:text-base md:text-lg">
+                    <p className="font-sora text-[#454545] text-sm sm:text-base md:text-lg">
                       {f.subtitle}
                     </p>
                     <Separator className="bg-[#454545]/80 w-[120px] sm:w-[180px] md:w-[220px] mx-auto lg:mx-0" />
@@ -223,7 +223,7 @@ export const FeaturesSection = (): JSX.Element => {
                       <span className="text-[#40934f]">{f.title.green}</span>
                       <span className="text-black">{f.title.black}</span>
                     </h3>
-                    <p className="font-lato text-[#454545] text-sm sm:text-base md:text-lg leading-relaxed">
+                    <p className="font-sora text-[#454545] text-sm sm:text-base md:text-lg leading-relaxed">
                       {f.description}
                     </p>
                   </div>

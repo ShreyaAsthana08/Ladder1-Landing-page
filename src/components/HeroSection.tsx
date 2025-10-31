@@ -27,9 +27,9 @@ export default function HeroSection() {
           loop
           muted
           playsInline
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
+          className="absolute top-[30%] left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-contain"
         >
-          <source src="/hero video.mp4" type="video/mp4" />
+          <source src="/edit hero video.mp4" type="video/mp4" />
         </video>
 
         {/* Optional gradient overlay for readability */}
@@ -39,7 +39,7 @@ export default function HeroSection() {
 
         <div className="relative w-full max-w-[1441px] mx-auto z-10">
           {/* Header */}
-          <header className="flex items-center justify-between px-4 md:px-[90px] pt-6 md:pt-8">
+          <header className="flex items-center justify-between  md:px-[50px] pt-6 md:pt-8">
             <img
               className="w-[120px] md:w-[172px] h-auto"
               alt="Ladder1 Logo"
@@ -71,14 +71,14 @@ export default function HeroSection() {
           </header>
 
           {/* 🔹 Hero Content */}
-          <div className="px-6 sm:px-12 md:px-[90px] lg:px-[127px] pt-16 md:pt-[80px] pb-12 md:pb-0 flex flex-col items-center md:items-start justify-center min-h-[90vh] text-center md:text-left">
+          <div className="px-6 sm:px-12 md:px-[90px] lg:px-[127px] pt-10 md:pt-[40px] pb-4 md:pb-0 flex flex-col items-center md:items-start justify-center min-h-[50vh] text-center md:text-left">
             <div className="w-full max-w-[707px] mx-auto md:mx-0 flex flex-col items-center md:items-start justify-center md:justify-start">
               <h1 className="max-w-[675px] bg-gradient-to-br from-white via-gray-300 to-gray-500 bg-clip-text text-transparent font-bold text-[32px] sm:text-[44px] md:text-[64px] leading-tight md:leading-[1.1] mb-4 md:mb-[27px]">
                 Because College <br /> Won&apos;t Teach You{" "}
                 <span className="text-white">This!</span>
               </h1>
 
-              <p className="max-w-[709px] text-[#bfbfbf] text-sm md:text-base leading-relaxed mb-6 md:mb-[56px]">
+              <p className="max-w-[709px] text-[#bfbfbf] text-xs md:text-base leading-relaxed mb-6 md:mb-[56px]">
                 Build real-world projects, not just assignments. Ladder1 helps you learn by doing —
                 code, create, and showcase your skills through hands-on projects that prepare you for
                 the industry.
@@ -118,7 +118,7 @@ export default function HeroSection() {
                 <img
                   src="/Rectangle 21981.png"
                   alt="Tutorial Frame"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-cover"
                   draggable={false}
                 />
               </div>

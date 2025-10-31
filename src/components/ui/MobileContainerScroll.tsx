@@ -32,7 +32,7 @@ export const MobileContainerScroll = ({
   return (
     <div
       ref={containerRef}
-      className="h-[60vh] flex items-center justify-center relative py-12"
+      className="h-[40vh] flex items-center justify-center relative py-12"
     >
       <div
         className="relative w-full flex items-center justify-center"
