@@ -71,7 +71,7 @@ export default function HeroSection() {
           </header>
 
           {/* 🔹 Hero Content */}
-          <div className="px-6 sm:px-12 md:px-[90px] lg:px-[127px] pt-10 md:pt-[40px] pb-4 md:pb-0 flex flex-col items-center md:items-start justify-center min-h-[50vh] text-center md:text-left">
+          <div className="px-6 sm:px-12 md:px-[90px] lg:px-[127px] pt-10 md:pt-[20px] pb-4 md:pb-0 flex flex-col items-center md:items-start justify-center min-h-[40vh] text-center md:text-left">
             <div className="w-full max-w-[707px] mx-auto md:mx-0 flex flex-col items-center md:items-start justify-center md:justify-start">
               <h1 className="max-w-[675px] bg-gradient-to-br from-white via-gray-300 to-gray-500 bg-clip-text text-transparent font-bold text-[32px] sm:text-[44px] md:text-[64px] leading-tight md:leading-[1.1] mb-4 md:mb-[27px]">
                 Because College <br /> Won&apos;t Teach You{" "}
