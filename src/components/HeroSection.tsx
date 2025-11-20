@@ -3,6 +3,7 @@
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 import { ContainerScroll } from "./ui/container-scroll-animation";
 import { MobileContainerScroll } from "./ui/MobileContainerScroll"; 
+import LaserFlow from "./ui/LaserFlow";
 
 export default function HeroSection() {
   const companyLogos = [
@@ -22,7 +23,7 @@ export default function HeroSection() {
       <div className="relative w-full overflow-hidden">
       {/* 🔹 Desktop Video Background */}
       <div className="hidden lg:block absolute inset-0 w-full h-full overflow-hidden z-0">
-        <video
+        {/* <video
           autoPlay
           loop
           muted
@@ -30,23 +31,24 @@ export default function HeroSection() {
           className="absolute top-[30%] left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-contain"
         >
           <source src="/edit hero video.mp4" type="video/mp4" />
-        </video>
+        </video> */}
+        <LaserFlow /> 
 
         {/* Optional gradient overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/0 to-transparent" /> 
       </div>
 
 
-        <div className="relative w-full max-w-[1441px] mx-auto z-10">
+        <div className="relative w-full max-w-[1441px] mx-auto z-10 ">
           {/* Header */}
           <header className="flex items-center justify-between  md:px-[50px] pt-6 md:pt-8">
             <img
               className="w-[120px] md:w-[172px] h-auto"
-              alt="Ladder1 Logo"
-              src="/ladder1-light-1-1.png"
+              alt="Ladder1 Logo" 
+              src="/ladder1-light-1-1.png"  
             />
 
-            <HoverBorderGradient
+            <HoverBorderGradient  
               containerClassName="rounded-[27px]"
               className="flex items-center justify-center gap-3 md:gap-4 px-5 md:px-8 py-3 md:py-4 bg-black/80 backdrop-blur-sm"
               gradientColor="#888787"
@@ -60,7 +62,7 @@ export default function HeroSection() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth={2}
+                  strokeWidth={4}
                   stroke="white"
                   className="w-4 h-4 md:w-5 md:h-5"
                 >
